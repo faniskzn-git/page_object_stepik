@@ -18,6 +18,14 @@ class ProductPage(BasePage):
         basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         basket_button.click()
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+    def should_dissapear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "'Success message is still present, but should disappear"
+
     def should_be_product_name_equal_basket_name(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         basket_message_product_name = self.browser.find_element(*ProductPageLocators.BASKET_MESSAGE_PRODUCT_NAME).text

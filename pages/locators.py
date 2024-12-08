@@ -8,6 +8,7 @@ class LoginPageLocators():
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
 class ProductPageLocators():
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1) div")
     ADD_TO_BASKET = (By.CSS_SELECTOR, "#add_to_basket_form > button")
     PRODUCT_NAME = (By.CSS_SELECTOR, "div.col-sm-6.product_main > h1")
     BASKET_MESSAGE_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages div:nth-child(1) strong")
