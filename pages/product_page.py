@@ -1,12 +1,11 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import time
 
 
 class ProductPage(BasePage):
     def should_be_product_add_to_basket(self):
         self.should_be_see_add_to_basket_button()
-        self.go_to_basket_page()
+        self.should_be_go_product_info_page()
         self.solve_quiz_and_get_code()
         self.should_be_product_name_equal_basket_name()
         self.should_be_basket_amount_equal_product_price()
@@ -14,7 +13,7 @@ class ProductPage(BasePage):
     def should_be_see_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET), "Add to basket button is not presented"
 
-    def go_to_basket_page(self):
+    def should_be_go_product_info_page(self):
         basket_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         basket_button.click()
 
